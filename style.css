@@ -291,6 +291,21 @@ margin: 0;
 padding: 0;
 }
 
+.combobox-container {
+    display: flex;
+    gap: 20px;
+}
+.combobox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.combobox-wrapper select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
 .bar-au-top {
 background-color: #589e62;
 color: white;
@@ -303,6 +318,22 @@ margin-bottom: 5px;
 position: sticky;
 top: 0;
 z-index: 999;
+}
+
+
+.combobox-container {
+    display: flex;
+    gap: 20px;
+}
+.combobox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.combobox-wrapper select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 .social-icons a {

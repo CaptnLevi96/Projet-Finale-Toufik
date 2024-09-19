@@ -30,6 +30,20 @@
                 <li><a href="#" onclick="currentFrame('materiel')">Matériel</a></li>
             </ul>
         </nav>
+        <div class="combobox-container">
+            <div class="combobox-wrapper">
+                <label for="pays-select">Pays:</label>
+                <select id="pays-select">
+                    <option value="">Sélectionner</option>
+                </select>
+            </div>
+            <div class="combobox-wrapper">
+                <label for="monnaie-select">Monnaie:</label>
+                <select id="monnaie-select">
+                    <option value="">Sélectionner</option>
+                </select>
+            </div>
+        </div>
         <div class="recherche-et-panier">
             <div class="bar-de-recherche">
                 <input type="text" placeholder="Entrez une catégorie...">
@@ -241,6 +255,8 @@
         <button id="checkout-btn">Checkout</button>
     </div>
 </div>
+
+
 <script src="script.js"></script>
 </body>
 </html>
