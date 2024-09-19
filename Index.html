@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepinière Pinetown</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="bar-au-top">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> 450-942-2934</span>
+            <span><i class="fas fa-envelope"></i> contact@pepiniere-pinetown.com</span>
+        </div>
+    </div>
+    <header class="headerprincipale">
+        <div class="logo">Pepinière Pinetown</div>
+        <nav id="MenuPrincipal">
+            <ul>
+                <li><a href="#" class="active" onclick="currentFrame('accueil')">Accueil</a></li>
+                <li><a href="#" onclick="currentFrame('arbres')">Arbres</a></li>
+                <li><a href="#" onclick="currentFrame('fleurs')">Fleurs</a></li>
+                <li><a href="#" onclick="currentFrame('materiel')">Matériel</a></li>
+            </ul>
+        </nav>
+        <div class="recherche-et-panier">
+            <div class="bar-de-recherche">
+                <input type="text" placeholder="Entrez une catégorie...">
+                <button id="bouton-rechercher">Rechercher</button>
+            </div>
+            <a id="panier" href="#">Panier</a>
+        </div>
+    </header>
+
+    <div id="Accueil">
+        <img class="accueil-img" src="Images/yusron-el-jihan-esd58uv6JpM-unsplash.jpg" alt="coveraccueil">
+        <div class="accueil-content">
+            <h1>Bienvenue chez <br><span id="pepiniere">Pepinière Pinetown</span></h1>
+            <p>Découvrez notre sélection de plantes et d'arbres pour embellir votre jardin. <br>
+                Dans la section en bas, vous découvrirez nos produits les plus populaires. &darr;
+            </p>   
+        </div>
+    </div>
+
+    <div id="accueil-bottom">
+        <div class="produit">
+            <img src="Images/71a3cVNAD6L._AC_SL1500_.jpg" alt="Produit 1">
+            <h3>Pots de pépinière flexibles en plastique</h3>
+            <p>Pour plantes d'intérieur et d'extérieur!</p>
+        </div>
+        <div class="produit">
+            <img src="Images/downloadsdf-1.jpg" alt="Produit 2">
+            <h3>Alocasia cuprea 'Red Secret'</h3>
+            <p>Une plante d'intérieur spectaculaire,<br>appréciée pour son feuillage métallique<br> et ses couleurs profondes.</p>
+        </div>
+        <div class="produit">
+            <img src="Images/43ziiq0lww471.jpg" alt="Produit 3">
+            <h3>Bonsai 'Money Tree'</h3>
+            <p>Cet arbre ne peut pas donner d'argent, <br>
+                mais on dit que sa beauté rare et modèle <br>
+                porte-bonheur à son propriétaire!</p>
+        </div>
+    </div>
+
+    <div id="Arbres" style="display:none;">
+        <h2>Notre sélection d'arbres</h2>
+        <p class="textarbre" style="text-align: center; margin-bottom: 30px; font-size: 20px;">Découvrez notre variété d'arbres pour embellir votre jardin.</p>
+        <div class="carte-grid" id="arbres-grid">
+            <!-- Les cartes de produits seront générées dynamiquement ici -->
+        </div>
+        <div class="section-bas" class="action-buttons" style="margin-top: 50px;">
+            <div class="nav-arrows">
+                <button class="nav-button prev-button">
+                    <i class="fas fa-arrow-left"></i> Page précédente
+                </button>
+                <button class="nav-button next-button" id="arbres-next">
+                    Page suivante <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div>
+                <button class="bouton-bas1">Contact</button>
+                <button class="bouton-bas2">Garantie</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="Fleurs" style="display:none;">
+        <h2>Notre sélection de fleurs</h2>
+        <p class="textarbre" style="text-align: center; margin-bottom: 30px; font-size: 20px;">Explorez notre sélection de fleurs pour donner vie à votre espace vert.</p>
+        <div class="carte-grid" id="fleurs-grid">
+            <!-- Les cartes de produits seront générées dynamiquement ici -->
+        </div>
+        <div class="section-bas" class="action-buttons" style="margin-top: 50px;">
+            <div class="nav-arrows">
+                <button class="nav-button prev-button" id="fleur-previous">
+                    <i class="fas fa-arrow-left"></i> Page précédente
+                </button>
+                <button class="nav-button next-button" id="fleur-next">
+                    Page suivante <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="action-buttons">
+                <button class="bouton-bas1">Contact</button>
+                <button class="bouton-bas2">Garantie</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="Materiel" style="display:none;">
+        <h2>Notre sélection de matériel</h2>
+        <p class="textarbre" style="text-align: center; margin-bottom: 30px; font-size: 20px;">Explorez notre sélection de matériel pour entretenir votre jardin.</p>
+        <div class="carte-grid" id="materiel-grid">
+        </div>
+        <div class="section-bas" class="action-buttons" style="margin-top: 50px;">
+            <div class="nav-arrows">
+                <button class="nav-button prev-button" id="materiel-previous">
+                    <i class="fas fa-arrow-left"></i> Page précédente
+                </button>
+                <button class="nav-button next-button">
+                    Page suivante <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="action-buttons">
+                <button class="bouton-bas1">Contact</button>
+                <button class="bouton-bas2">Garantie</button>
+            </div>
+        </div>
+    </div>
+  
+    <div class="menu-contextuel">
+        <ul>
+            <li>Voir détail</li>
+            <li>Wikipedia</li>
+            <li>Ajouter au panier</li>
+        </ul>
+    </div>
+
+    <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->      <!-- Modal -->
+         
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-image-container">
+                <img id="modal-image-1" src="" alt="Image du produit 1" class="modal-image active">
+                <img id="modal-image-2" src="" alt="Image du produit 2" class="modal-image">
+                <img id="modal-image-3" src="" alt="Image du produit 3" class="modal-image">
+            </div>
+            <div class="image-navigator">
+                <button id="prev-image"><i class="fas fa-chevron-left"></i></button>
+                <div class="image-indicator">
+                    <span class="active" data-index="0"></span>
+                    <span data-index="1"></span>
+                    <span data-index="2"></span>
+                </div>
+                <button id="next-image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+            <div class="quantity-selector">
+                <label for="modal-quantity">Quantité:</label>
+                <input type="number" id="modal-quantity" min="1" max="300" value="1">
+            </div>
+            <div class="inventory-display">
+                <label for="modal-items-restants">Items restants:</label>
+                <span id="modal-items-restants">0</span>
+            </div>
+            <button id="modal-add-to-cart">Ajouter au panier</button>
+        </div>
+    </div>
+    
+    <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->
+    
+       <div id="contact-page" style="display: none;">
+        <div class="contact-container">
+            <button id="close-contact" class="close-btn">&times;</button>
+            <h2>Contactez-nous</h2>
+            <div class="contact-info">
+                <div class="info-section">
+                    <h3>APPELEZ NOUS</h3>
+                    <p>1 (514) 732-249</p>
+                </div>
+                <div class="info-section">
+                    <h3>EMPLACEMENT</h3>
+                    <p>040 Boulevard Hebert, Salaberry-de-Valleyfield, Quebec</p>
+                </div>
+                <div class="info-section">
+                    <h3>HEURES DE TRAVAIL</h3>
+                    <p>Lun - Ven ...... 10 h - 20 h</p>
+                    <p>Sam, Dim ...... Fermé</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- Panier -->         <!-- Panier -->     <!-- Panier -->     <!-- Panier -->    <!-- Panier -->      <!-- Panier -->     <!-- Panier -->     <!-- Panier -->
+ <div id="panier-page" style="display: none;">
+    <div class="panier-content">
+        <div class="panier-header">
+            <h2 id="PanierTitre">Votre panier</h2>
+            <button id="close-panier" class="close-btn">&times;</button>
+        </div>
+        <table class="panier-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="panier-items">
+                <!-- Les articles du panier seront ajoutés ici dynamiquement -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td id="panier-total">0</td>
+                </tr>
+                <tr>
+                    <td colspan="3">TPS</td>
+                    <td id="panier-tps">0</td>
+                </tr>
+                <tr>
+                    <td colspan="3">TVQ</td>
+                    <td id="panier-tvq">0</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><strong>À payer</strong></td>
+                    <td id="panier-a-payer"><strong>0</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button id="checkout-btn">Checkout</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
