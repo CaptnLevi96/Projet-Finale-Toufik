@@ -1280,52 +1280,72 @@ document.head.appendChild(style);
 // ComboBox // // ComboBox //  // ComboBox //  // ComboBox // ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //
 
 
-// Fonction pour remplir le combobox des pays
-function remplirComboboxPays() {
-    const paysSelect = document.getElementById('pays-select');
+const countryCurrencyMap = {};
 
-    fetch('https://freetestapi.com/api/v1/countries')
+function remplirComboboxPays() {
+    const paysSelect = document.getElementById('pays-select');              // Fonction pour remplir le combobox des pays
+
+
+    return fetch('https://restcountries.com/v3.1/all')
         .then(response => response.json())
         .then(countries => {
-            countries.sort((a, b) => a.name.localeCompare(b.name));
+            countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
             countries.forEach(country => {
-                if (country.code !== 'CA') { // Évite de dupliquer le Canada
-                    const option = document.createElement('option');
-                    option.value = country.code;
-                    option.textContent = country.name;
-                    paysSelect.appendChild(option);
+                const option = document.createElement('option');
+                option.value = country.cca2;
+                option.textContent = country.name.common;
+                paysSelect.appendChild(option);
+
+                if (country.currencies) {                                                           // Stocker la correspondance pays-devise
+                    const currencyCode = Object.keys(country.currencies)[0];
+                    countryCurrencyMap[country.cca2] = currencyCode;
                 }
             });
         })
         .catch(error => console.error('Erreur lors de la récupération des pays:', error));
 }
 
-// Fonction pour remplir le combobox des monnaies
-function remplirComboboxMonnaies() {
+function remplirComboboxMonnaies() {                                        // Fonction pour remplir le combobox des monnaies
     const monnaieSelect = document.getElementById('monnaie-select');
 
-    fetch('https://freetestapi.com/api/v1/currencies')
+    return fetch('https://openexchangerates.org/api/currencies.json')
         .then(response => response.json())
         .then(currencies => {
-            currencies.sort((a, b) => a.name.localeCompare(b.name));
-
-            currencies.forEach(currency => {
-                if (currency.code !== 'CAD') { // Évite de dupliquer le Canadian $
-                    const option = document.createElement('option');
-                    option.value = currency.code;
-                    option.textContent = `${currency.name} (${currency.symbol})`;
-                    monnaieSelect.appendChild(option);
-                }
+            Object.entries(currencies).forEach(([code, name]) => {
+                const option = document.createElement('option');
+                option.value = code;
+                option.textContent = `${name} (${code})`;
+                monnaieSelect.appendChild(option);
             });
         })
         .catch(error => console.error('Erreur lors de la récupération des monnaies:', error));
 }
-// Appeler les fonctions lorsque le DOM est chargé
+
+function updateCurrency() {                                                 // Fonction pour mettre à jour la devise en fonction du pays sélectionné
+    const paysSelect = document.getElementById('pays-select');
+    const monnaieSelect = document.getElementById('monnaie-select');
+    const selectedCountry = paysSelect.value;
+
+    if (countryCurrencyMap[selectedCountry]) {
+        monnaieSelect.value = countryCurrencyMap[selectedCountry];
+    }
+}
+
+// Initialisation
 document.addEventListener('DOMContentLoaded', () => {
-    remplirComboboxPays();
-    remplirComboboxMonnaies();
+    Promise.all([remplirComboboxPays(), remplirComboboxMonnaies()])
+        .then(() => {
+            // Ajouter un écouteur d'événements pour le changement de pays
+            const paysSelect = document.getElementById('pays-select');
+            paysSelect.addEventListener('change', updateCurrency);
+
+            // Initialiser la devise pour le pays par défaut
+            updateCurrency();
+        });
 });
+
+
 // ComboBox // // ComboBox //  // ComboBox //  // ComboBox // ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //
 
 
@@ -1372,4 +1392,5 @@ function getUserLocationAndCurrency() {
 }
 // Appel de la fonction
 getUserLocationAndCurrency();
+
 // Adresse ID // // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID // // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID // 
