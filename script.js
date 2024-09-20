@@ -1275,4 +1275,57 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+
 // Filtrage // // Filtrage //  // Filtrage //  // Filtrage //  // Filtrage //  // Filtrage //  // Filtrage //  // Filtrage //  // Filtrage //  // Filtrage //   // Filtrage //  // Filtrage // // Filtrage //  // Filtrage // 
+// ComboBox // // ComboBox //  // ComboBox //  // ComboBox // ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //
+
+
+// Fonction pour remplir le combobox des pays
+function remplirComboboxPays() {
+    const paysSelect = document.getElementById('pays-select');
+
+    fetch('https://freetestapi.com/api/v1/countries')
+        .then(response => response.json())
+        .then(countries => {
+            countries.sort((a, b) => a.name.localeCompare(b.name));
+
+            countries.forEach(country => {
+                if (country.code !== 'CA') { // Évite de dupliquer le Canada
+                    const option = document.createElement('option');
+                    option.value = country.code;
+                    option.textContent = country.name;
+                    paysSelect.appendChild(option);
+                }
+            });
+        })
+        .catch(error => console.error('Erreur lors de la récupération des pays:', error));
+}
+
+// Fonction pour remplir le combobox des monnaies
+function remplirComboboxMonnaies() {
+    const monnaieSelect = document.getElementById('monnaie-select');
+
+    fetch('https://freetestapi.com/api/v1/currencies')
+        .then(response => response.json())
+        .then(currencies => {
+            currencies.sort((a, b) => a.name.localeCompare(b.name));
+
+            currencies.forEach(currency => {
+                if (currency.code !== 'CAD') { // Évite de dupliquer le Canadian $
+                    const option = document.createElement('option');
+                    option.value = currency.code;
+                    option.textContent = `${currency.name} (${currency.symbol})`;
+                    monnaieSelect.appendChild(option);
+                }
+            });
+        })
+        .catch(error => console.error('Erreur lors de la récupération des monnaies:', error));
+}
+// Appeler les fonctions lorsque le DOM est chargé
+document.addEventListener('DOMContentLoaded', () => {
+    remplirComboboxPays();
+    remplirComboboxMonnaies();
+});
+
+
+// ComboBox // // ComboBox //  // ComboBox //  // ComboBox // ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //
