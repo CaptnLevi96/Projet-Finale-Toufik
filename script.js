@@ -1326,6 +1326,50 @@ document.addEventListener('DOMContentLoaded', () => {
     remplirComboboxPays();
     remplirComboboxMonnaies();
 });
-
-
 // ComboBox // // ComboBox //  // ComboBox //  // ComboBox // ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //  // ComboBox //  ComboBox // // ComboBox //  // ComboBox //
+
+
+
+// Adresse ID // // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID // // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID // 
+
+function getIpAddress() {
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Votre adresse IP est:', data.ip);
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération de l\'adresse IP:', error);
+        });
+}
+
+// Appel de la fonction
+getIpAddress();
+
+// Fonction pour obtenir les informations de localisation et de devise
+function getUserLocationAndCurrency() {
+    fetch('http://ip-api.com/json/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const country = data.country;
+                const countryCode = data.countryCode;
+                console.log(`Pays de l'utilisateur: ${country}`);
+
+        return fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)      // J'ai utiliser un autre API pour obtenir la devise du pays
+                    .then(response => response.json())
+                    .then(countryData => {
+                        const currencies = Object.keys(countryData[0].currencies);
+                        console.log(`Code de devise du pays: ${currencies[0]}`);
+                    });
+            } else {
+                console.log('Impossible d\'obtenir les informations de localisation.');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des informations:', error);
+        });
+}
+// Appel de la fonction
+getUserLocationAndCurrency();
+// Adresse ID // // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID // // Adresse ID //  // Adresse ID //  // Adresse ID //  // Adresse ID // 
