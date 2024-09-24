@@ -60,4 +60,3 @@ class I18n {
 
 const _i18N = new I18n("fr", "i18n/i18n.json");
 _i18N.hydrateHtml();
-_i18N.setLang("fr");
