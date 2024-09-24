@@ -1,0 +1,34 @@
+{
+    "fr": {
+        "accueil" : {
+            "nav": "Accueil"
+        },
+        "produit" : {
+            "arbres": {
+                "nav": "Arbres"
+            },
+            "fleurs": {
+                "nav": "Fleurs"
+            },
+            "materiel": {
+                "nav": "Matériel"
+            }
+        }
+    },
+    "en": {
+        "accueil" : {
+            "nav": "Home"
+        },
+        "produit" : {
+            "arbres": {
+                "nav": "Trees"
+            },
+            "fleurs": {
+                "nav": "Flowers"
+            },
+            "materiel": {
+                "nav": "Materials"
+            }
+        }
+    }
+}
