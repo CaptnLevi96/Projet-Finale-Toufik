@@ -17,7 +17,16 @@
             },
             "buttons": {
                 "basket": "Panier",
-                "search": "Rechercher"
+                "search": "Rechercher",
+                "previous": "Précédent",
+                "next": "Suivant",
+                "contact": "Contact",
+                "garantie": "Garantie"
+            },
+            "menu": {
+                "details": "Voir détail",
+                "wikipedia": "Wikipedia",
+                "add_to_basket": "Ajouter au panier"
             }
         },
         "accueil" : {
@@ -41,13 +50,19 @@
         },
         "produit" : {
             "arbres": {
-                "nav": "Arbres"
+                "nav": "Arbres",
+                "title": "Notre sélection d'arbres",
+                "description": "Découvrez notre variété d'arbres pour embellir votre jardin."
             },
             "fleurs": {
-                "nav": "Fleurs"
+                "nav": "Fleurs",
+                "title": "Notre sélection de fleurs",
+                "description": "Explorez notre sélection de fleurs pour donner vie à votre espace vert."
             },
             "materiel": {
-                "nav": "Matériel"
+                "nav": "Matériel",
+                "title": "Notre sélection de matériel",
+                "description": "Explorez notre sélection de matériel pour entretenir votre jardin."
             }
         }
     },
@@ -69,7 +84,16 @@
             },
             "buttons": {
                 "basket": "Basket",
-                "search": "Search"
+                "search": "Search",
+                "previous": "Previous",
+                "next": "Next",
+                "contact": "Contact",
+                "garantie": "Garantie"
+            },
+            "menu": {
+                "details": "Details",
+                "wikipedia": "Wikipedia",
+                "add_to_basket": "Add to basket"
             }
         },
         "accueil" : {
@@ -93,13 +117,19 @@
         },
         "produit" : {
             "arbres": {
-                "nav": "Trees"
+                "nav": "Trees",
+                "title": "Our selection of trees",
+                "description": "Explore our variety of trees to decorate your garden."
             },
             "fleurs": {
-                "nav": "Flowers"
+                "nav": "Flowers",
+                "title": "Our selection of flowers",
+                "description": "Explore our selection of flowers to give your green space a touch."
             },
             "materiel": {
-                "nav": "Materials"
+                "nav": "Materials",
+                "title": "Our selection of materials",
+                "description": "Explore our selection of materials to maintain your garden."
             }
         }
     }
