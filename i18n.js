@@ -32,7 +32,7 @@ class I18n {
     const keys = key.split(".");
 
     if (this.#i18n === null) {
-      this.#i18n = await fetch(this.#model).then((res) => res.json());
+      await this.evaluate();
     }
 
     let t = this.#i18n;
@@ -68,6 +68,47 @@ class I18n {
         });
       });
     });
+  }
+
+  // FILE MANAGEMENT BASED ON this.#model
+  async getContent() {
+    return await fetch(this.#model).then((res) => res.json());
+  }
+
+  removeFromLocalStorage() {
+    window.localStorage.removeItem("i18nContent");
+  }
+
+  saveToLocalStorage(i18nContent) {
+    localStorage.setItem("i18nContent", JSON.stringify(i18nContent));
+  }
+
+  getFromLocalStorage() {
+    return localStorage.getItem("i18nContent");
+  }
+
+  async resetToDefault() {
+    const i18nContent = await this.getContent().then((res) => res);
+    this.#i18n = i18nContent;
+    this.removeFromLocalStorage();
+    this.saveToLocalStorage(i18nContent);
+    return i18nContent;
+  }
+
+  async evaluate() {
+    const i18nContent = await this.getFromLocalStorage();
+    if (i18nContent) {
+      try {
+        this.#i18n = JSON.parse(i18nContent);
+      } catch (error) {
+        window.localStorage.removeItem("i18nContent");
+        console.warn("i18nContent was not a valid JSON file");
+        return this.resetToDefault();
+      }
+    } else {
+      return this.resetToDefault();
+    }
+    return this.#i18n;
   }
 }
 

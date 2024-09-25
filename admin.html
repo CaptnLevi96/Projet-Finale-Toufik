@@ -17,11 +17,11 @@
             <form id="login-form">
                 <div class="input-group">
                     <label for="email">Adresse e-mail</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required value="admin@pepiniere.com">
                 </div>
                 <div class="input-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" required value="12345">
                 </div>
                 <button type="submit">Se connecter</button>
                 <p style="margin-top: 10px; text-align: center;"><strong>Adresse Email</strong>: admin@pepiniere.com / <strong>mot de passe</strong>: 12345</p>
@@ -31,8 +31,10 @@
 
         <div id="admin-section" class="container" style="display: none;">
             <h2>Contenu du fichier de l'array i18n</h2>
-            <textarea id="i18n-content" rows="20" readonly></textarea>
+            <textarea id="i18n-content" rows="20"></textarea>
             <button id="download-btn">Télécharger i18n.json</button>
+            <button id="upload-btn"> Upload i18n.json</button>
+            <button id="reset-btn" style="margin-top: 10px; background-color: rgb(47, 124, 73);">Réinitialiser</button>
             <button id="logout-btn" style="margin-top: 10px; background-color: #f44336;">Déconnexion</button>
         </div>
     </main>
@@ -138,41 +140,9 @@
         }
     </style>
 
+<script src="i18n.js"></script>
 <script>
-    const i18nContent = {
-        "fr": {
-            "accueil" : {
-                "nav": "Accueil"
-            },
-            "produit" : {
-                "arbres": {
-                    "nav": "Arbres"
-                },
-                "fleurs": {
-                    "nav": "Fleurs"
-                },
-                "materiel": {
-                    "nav": "Matériel"
-                }
-            }
-        },
-        "en": {
-            "accueil" : {
-                "nav": "Home"
-            },
-            "produit" : {
-                "arbres": {
-                    "nav": "Trees"
-                },
-                "fleurs": {
-                    "nav": "Flowers"
-                },
-                "materiel": {
-                    "nav": "Materials"
-                }
-            }
-        }
-    };
+    let i18nContent = null;
 
     document.addEventListener('DOMContentLoaded', function() {
         const loginForm = document.getElementById('login-form');
@@ -182,8 +152,10 @@
         const textarea = document.getElementById('i18n-content');
         const downloadBtn = document.getElementById('download-btn');
         const logoutBtn = document.getElementById('logout-btn');
+        const uploadBtn = document.getElementById('upload-btn');
+        const resetBtn = document.getElementById('reset-btn');
 
-        loginForm.addEventListener('submit', function(event) {
+        loginForm.addEventListener('submit', async function(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
@@ -191,7 +163,8 @@
             if (email === 'admin@pepiniere.com' && password === '12345') {
                 loginSection.style.display = 'none';
                 adminSection.style.display = 'block';
-                textarea.value = JSON.stringify(i18nContent, null, 2);
+                i18nContent = await _i18N.evaluate(); // Récupérer le contenu du fichier JSON
+                textarea.value = JSON.stringify(i18nContent, null, 2); // Convertir le fichier JSON en chaîne de caractères
             } else {
                 messageElement.textContent = 'Identifiants incorrects. Veuillez réessayer.';
                 messageElement.className = 'message error';
@@ -204,16 +177,45 @@
             }
         });
 
+        function isJSONValid(json) {
+            try {
+                return JSON.parse(json);
+            } catch (error) {
+                return false;
+            }
+        }
+        
         downloadBtn.addEventListener('click', function() {
-            const blob = new Blob([JSON.stringify(i18nContent, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'i18n.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            if (isJSONValid(textarea.value)) {
+                const blob = new Blob([textarea.value], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'i18n.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } else {
+                alert("Le contenu n'est pas valide. Veuillez vérifier le JSON.");
+            }
+        });
+
+        uploadBtn.addEventListener('click', function() {
+            let i18nContent = isJSONValid(textarea.value);
+            if (i18nContent) {
+                i18nContent = JSON.parse(textarea.value);
+                _i18N.saveToLocalStorage(i18nContent);
+                alert("Fichier i18n.json mise à jour avec succès.");
+            } else {
+                alert("Le contenu n'est pas valide. Veuillez vérifier le JSON.");
+            }
+        });
+
+        resetBtn.addEventListener('click', async function() {
+            i18nContent = await _i18N.resetToDefault(); // Récupérer le contenu du fichier JSON
+            textarea.value = JSON.stringify(i18nContent, null, 2); // Convertir le fichier JSON en chaîne de caractères
+            alert("Fichier i18n.json réinitialisé avec succès.");
         });
 
         logoutBtn.addEventListener('click', function() {
@@ -223,6 +225,7 @@
             document.getElementById('password').value = '';
             messageElement.textContent = '';
         });
+        
     });
 </script>
 
