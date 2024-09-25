@@ -23,4 +23,4 @@ class Context {
   }
 }
 
-// const _context = new Context("CAD", "$", 1.3, "CA");
+const _context = new Context("CAD", "$", 1.3, "CA");

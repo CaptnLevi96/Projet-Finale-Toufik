@@ -1,7 +1,43 @@
 {
     "fr": {
+        "app": {
+            "title": "Pepinière Pinetown"
+        },
+        "input": {
+            "country": {
+                "label": "Pays:",
+                "default": "Sélectionner"
+            },
+            "currency": {
+                "label": "Monnaie:",
+                "default": "Sélectionner"
+            },
+            "search": {
+                "label": "Entrez une catégorie..."
+            },
+            "buttons": {
+                "basket": "Panier",
+                "search": "Rechercher"
+            }
+        },
         "accueil" : {
-            "nav": "Accueil"
+            "nav": "Accueil",
+            "welcome": "Bienvenue chez <br><span id=\"pepiniere\">Pepinière Pinetown</span>",
+            "description": "Découvrez notre sélection de plantes et d'arbres pour embellir votre jardin. <br> Dans la section en bas, vous découvrirez nos produits les plus populaires. &darr;",
+            "products": {
+                "1": {
+                    "title": "Pots de pépinière flexibles en plastique",
+                    "description": "Pour plantes d'intérieur et d'extérieur!"
+                },
+                "2": {
+                    "title": "Alocasia cuprea 'Red Secret'",
+                    "description": "Une plante d'intérieur spectaculaire,<br>appréciée pour son feuillage métallique<br> et ses couleurs profondes."
+                },
+                "3": {
+                    "title": "Bonsai 'Money Tree'",
+                    "description": "Cet arbre ne peut pas donner d'argent, <br> mais on dit que sa beauté rare et modèle <br> porte-bonheur à son propriétaire!"
+                }
+            }
         },
         "produit" : {
             "arbres": {
@@ -16,8 +52,44 @@
         }
     },
     "en": {
+        "app": {
+            "title": "Pinetown Nursery"
+        },
+        "input": {
+            "country": {
+                "label": "Country:",
+                "default": "Select"
+            },
+            "currency": {
+                "label": "Currency:",
+                "default": "Select"
+            },
+            "search": {
+                "label": "Enter a category..."
+            },
+            "buttons": {
+                "basket": "Basket",
+                "search": "Search"
+            }
+        },
         "accueil" : {
-            "nav": "Home"
+            "nav": "Home",
+            "welcome": "Welcome to <br><span id=\"pepiniere\">Pinetown Nursery</span>",
+            "description": "Explore our selection of plants and trees to decorate your garden. <br> In the bottom section, you will discover our most popular products. &darr;",
+            "products": {
+                "1": {
+                    "title": "Flexible pots of pepiniere in plastic",
+                    "description": "For indoor and outdoor plants!"
+                },
+                "2": {
+                    "title": "Red Secret 'Alocasia cuprea'",
+                    "description": "An indoor-sized plant, <br>beloved for its metallic leaf and deep colors."
+                },
+                "3": {
+                    "title": "Money Tree 'Bonsai'",
+                    "description": "This tree cannot give you money, <br> but it is said to be a rare and model <br> to bring joy to its owner!"
+                }
+            }
         },
         "produit" : {
             "arbres": {

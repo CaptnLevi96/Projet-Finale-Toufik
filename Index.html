@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pepinière Pinetown</title>
+    <title>Pinetown</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
@@ -21,67 +21,61 @@
         </div>
     </div>
     <header class="headerprincipale">
-        <div class="logo">Pepinière Pinetown</div>
+        <div class="logo" data-i18n="app.title"></div>
         <nav id="MenuPrincipal">
             <ul>
-                <li><a href="#" class="active" onclick="currentFrame('accueil')">Accueil</a></li>
-                <li><a href="#" onclick="currentFrame('arbres')">Arbres</a></li>
-                <li><a href="#" onclick="currentFrame('fleurs')">Fleurs</a></li>
-                <li><a href="#" onclick="currentFrame('materiel')">Matériel</a></li>
+                <li><a href="#" class="active" onclick="currentFrame('accueil')" data-i18n="accueil.nav"></a></li>
+                <li><a href="#" onclick="currentFrame('arbres')" data-i18n="produit.arbres.nav"></a></li>
+                <li><a href="#" onclick="currentFrame('fleurs')" data-i18n="produit.fleurs.nav"></a></li>
+                <li><a href="#" onclick="currentFrame('materiel')" data-i18n="produit.materiel.nav"></a></li>
             </ul>
         </nav>
         <div class="combobox-container">
             <div class="combobox-wrapper">
-                <label for="pays-select">Pays:</label>
+                <label for="pays-select" data-i18n="input.country.label"></label>
                 <select id="pays-select">
-                    <option value="">Sélectionner</option>
-                    <option value="CA" selected>Canada</option>
+                    <option value="" data-i18n="input.country.default"></option>
                 </select>
             </div>
             <div class="combobox-wrapper">
-                <label for="monnaie-select">Monnaie:</label>
+                <label for="monnaie-select" data-i18n="input.currency.label"></label>
                 <select id="monnaie-select">
-                    <option value="">Sélectionner</option>
-                    <option value="CAD" selected>Canadian $</option>
+                    <option value="" data-i18n="input.currency.default"></option>
                 </select>
             </div>
         </div>
         <div class="recherche-et-panier">
             <div class="bar-de-recherche">
-                <input type="text" placeholder="Entrez une catégorie...">
-                <button id="bouton-rechercher">Rechercher</button>
+                <input type="text" data-i18n-attribute="placeholder" data-i18n="input.search.label">
+                <button id="bouton-rechercher" data-i18n="input.buttons.search"></button>
             </div>
-            <a id="panier" href="#">Panier</a>
+            <a id="panier" href="#" data-i18n="input.buttons.basket"></a>
         </div>
     </header>
 
     <div id="Accueil">
         <img class="accueil-img" src="Images/yusron-el-jihan-esd58uv6JpM-unsplash.jpg" alt="coveraccueil">
         <div class="accueil-content">
-            <h1>Bienvenue chez <br><span id="pepiniere">Pepinière Pinetown</span></h1>
-            <p>Découvrez notre sélection de plantes et d'arbres pour embellir votre jardin. <br>
-                Dans la section en bas, vous découvrirez nos produits les plus populaires. &darr;
-            </p>   
+            <h1 data-i18n="accueil.welcome"></h1>
+            <p data-i18n="accueil.description"></p>
         </div>
     </div>
 
     <div id="accueil-bottom">
         <div class="produit">
             <img src="Images/71a3cVNAD6L._AC_SL1500_.jpg" alt="Produit 1">
-            <h3>Pots de pépinière flexibles en plastique</h3>
-            <p>Pour plantes d'intérieur et d'extérieur!</p>
+            <h3 data-i18n="accueil.products.1.title"></h3>
+            <p data-i18n="accueil.products.1.description"></p>
         </div>
         <div class="produit">
             <img src="Images/downloadsdf-1.jpg" alt="Produit 2">
-            <h3>Alocasia cuprea 'Red Secret'</h3>
-            <p>Une plante d'intérieur spectaculaire,<br>appréciée pour son feuillage métallique<br> et ses couleurs profondes.</p>
+            <h3 data-i18n="accueil.products.2.title"></h3>
+            <p data-i18n="accueil.products.2.description"></p>
         </div>
         <div class="produit">
             <img src="Images/43ziiq0lww471.jpg" alt="Produit 3">
-            <h3>Bonsai 'Money Tree'</h3>
-            <p>Cet arbre ne peut pas donner d'argent, <br>
-                mais on dit que sa beauté rare et modèle <br>
-                porte-bonheur à son propriétaire!</p>
+            <h3 data-i18n="accueil.products.3.title"></h3>
+            <p data-i18n="accueil.products.3.description"></p>
         </div>
     </div>
 
@@ -257,6 +251,8 @@
         <button id="checkout-btn">Checkout</button>
     </div>
 </div>
+<script src="i18n.js"></script>
+<script src="context.js"></script>
 <script src="produit.js"></script>
 <script src="modal.js"></script>
 <script src="barreprincipale.js"></script>

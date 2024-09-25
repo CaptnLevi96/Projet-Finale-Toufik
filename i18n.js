@@ -1,6 +1,10 @@
-/* UTILISATION 
-  Ajouter data-i18n à vos éléments HTML ou element.dataset.i18n
-  lors du changement de language, 
+/* UTILISATION
+  @data-i18n-attribute
+  ajouter data-i18n-attribute pour les attributs à modifier
+  data-18n-attribute="innerHTML,title" est "innerHTML" par défaut
+  @data-i18n
+  Ajouter data-i18n à vos éléments HTML, représentant la clé de la traduction
+  data-i18n="app.text,app.title"
   hydrateHtml() sera appelé pour mettre à jour les éléments HTML
 */
 
@@ -42,21 +46,30 @@ class I18n {
         t = t[keys[k]];
       }
     }
-    console.log(t);
     return t;
   }
 
   async hydrateHtml() {
     const i18nElements = document.querySelectorAll("[data-i18n]");
     i18nElements.forEach((element) => {
-      const key = element.getAttribute("data-i18n");
-      const text = this.text(key).then((text) => {
-        console.log(text);
-        element.innerHTML = text;
+      let attributes = ["innerHTML"];
+      let keys = element.getAttribute("data-i18n").split(",");
+
+      // Regarder si l'élément a un attribut data-i18n-attribute
+      if (element.hasAttribute("data-i18n-attribute")) {
+        attributes = element.getAttribute("data-i18n-attribute");
+        attributes = attributes.split(",");
+      }
+
+      keys.forEach((key, index) => {
+        const attribute = attributes[index] || "innerHTML";
+        this.text(key).then((text) => {
+          element[attribute] = text;
+        });
       });
     });
   }
 }
 
-const _i18N = new I18n("fr", "i18n/i18n.json");
+const _i18N = new I18n("en", "i18n/i18n.json");
 _i18N.hydrateHtml();
