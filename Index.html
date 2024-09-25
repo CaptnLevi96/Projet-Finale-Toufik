@@ -153,7 +153,6 @@
     </div>
 
     <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->      <!-- Modal -->
-         
     <div id="product-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -175,34 +174,33 @@
             <p id="modal-description"></p>
             <p id="modal-price"></p>
             <div class="quantity-selector">
-                <label for="modal-quantity">Quantité:</label>
+                <label for="modal-quantity" data-i18n="modals.product.quantity"></label>
                 <input type="number" id="modal-quantity" min="1" max="300" value="1">
             </div>
             <div class="inventory-display">
-                <label for="modal-items-restants">Items restants:</label>
+                <label for="modal-items-restants" data-i18n="modals.product.quantity"></label>
                 <span id="modal-items-restants">0</span>
             </div>
-            <button id="modal-add-to-cart">Ajouter au panier</button>
+            <button id="modal-add-to-cart" data-i18n="modals.product.add_to_basket"></button>
         </div>
     </div>
     
     <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->             <!-- Modal -->
-    
        <div id="contact-page" style="display: none;">
         <div class="contact-container">
             <button id="close-contact" class="close-btn">&times;</button>
-            <h2>Contactez-nous</h2>
+            <h2 data-i18n="modals.contact.title"></h2>
             <div class="contact-info">
                 <div class="info-section">
-                    <h3>APPELEZ NOUS</h3>
+                    <h3 data-i18n="modals.contact.phone"></h3>
                     <p>1 (514) 732-249</p>
                 </div>
                 <div class="info-section">
-                    <h3>EMPLACEMENT</h3>
+                    <h3 data-i18n="modals.contact.address"></h3>
                     <p>040 Boulevard Hebert, Salaberry-de-Valleyfield, Quebec</p>
                 </div>
                 <div class="info-section">
-                    <h3>HEURES DE TRAVAIL</h3>
+                    <h3 data-i18n="modals.contact.hours"></h3>
                     <p>Lun - Ven ...... 10 h - 20 h</p>
                     <p>Sam, Dim ...... Fermé</p>
                 </div>
@@ -214,16 +212,16 @@
  <div id="panier-page" style="display: none;">
     <div class="panier-content">
         <div class="panier-header">
-            <h2 id="PanierTitre">Votre panier</h2>
+            <h2 id="PanierTitre" data-i18n="modals.basket.title"></h2>
             <button id="close-panier" class="close-btn">&times;</button>
         </div>
         <table class="panier-table">
             <thead>
                 <tr>
-                    <th>Produit</th>
-                    <th>Quantité</th>
-                    <th>Prix unitaire</th>
-                    <th>Total</th>
+                    <th data-i18n="modals.basket.product"></th>
+                    <th data-i18n="modals.basket.quantity"></th>
+                    <th data-i18n="modals.basket.price"></th>
+                    <th data-i18n="modals.basket.total"></th>
                 </tr>
             </thead>
             <tbody id="panier-items">
@@ -231,24 +229,24 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3">Total</td>
+                    <td colspan="3" data-i18n="modals.basket.total"></td>
                     <td id="panier-total">0</td>
                 </tr>
                 <tr>
-                    <td colspan="3">TPS</td>
+                    <td colspan="3" data-i18n="modals.basket.tps"></td>
                     <td id="panier-tps">0</td>
                 </tr>
                 <tr>
-                    <td colspan="3">TVQ</td>
+                    <td colspan="3" data-i18n="modals.basket.tvq"></td>
                     <td id="panier-tvq">0</td>
                 </tr>
                 <tr>
-                    <td colspan="3"><strong>À payer</strong></td>
+                    <td colspan="3"><strong data-i18n="modals.basket.to_pay"></strong></td>
                     <td id="panier-a-payer"><strong>0</strong></td>
                 </tr>
             </tfoot>
         </table>
-        <button id="checkout-btn">Checkout</button>
+        <button id="checkout-btn" data-i18n="modals.basket.checkout"></button>
     </div>
 </div>
 <script src="i18n.js"></script>

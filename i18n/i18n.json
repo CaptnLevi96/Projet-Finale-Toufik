@@ -64,6 +64,34 @@
                 "title": "Notre sélection de matériel",
                 "description": "Explorez notre sélection de matériel pour entretenir votre jardin."
             }
+        },
+        "modals": {
+            "product": {
+                "title": "Produit",
+                "description": "Description",
+                "price": "Prix",
+                "quantity": "Quantité",
+                "add_to_basket": "Ajouter au panier",
+                "details": "Voir détail",
+                "wikipedia": "Wikipedia"
+            },
+            "contact": {
+                "title": "Contactez-nous",
+                "phone": "APPELEZ NOUS",
+                "address": "EMPLACEMENT",
+                "hours": "HEURES DE TRAVAIL"
+            },
+            "basket": {
+                "title": "Votre panier",
+                "product": "Produit",
+                "quantity": "Quantité",
+                "price": "Prix unitaire",
+                "total": "Total",
+                "tps": "TPS",
+                "tvq": "TVQ",
+                "to_pay": "À payer",
+                "checkout": "Checkout"
+            }
         }
     },
     "en": {
@@ -130,6 +158,34 @@
                 "nav": "Materials",
                 "title": "Our selection of materials",
                 "description": "Explore our selection of materials to maintain your garden."
+            }
+        },
+        "modals": {
+            "product": {
+                "title": "Product",
+                "description": "Description",
+                "price": "Price",
+                "quantity": "Quantity",
+                "add_to_basket": "Add to basket",
+                "details": "Details",
+                "wikipedia": "Wikipedia"
+            },
+            "contact": {
+                "title": "Contact us",
+                "phone": "CALL US",
+                "address": "ADDRESS",
+                "hours": "HOURS OF OPERATION"
+            },
+            "basket": {
+                "title": "Your basket",
+                "product": "Product",
+                "quantity": "Quantity",
+                "price": "Unit price",
+                "total": "Total",
+                "tps": "TPS",
+                "tvq": "TVQ",
+                "to_pay": "To pay",
+                "checkout": "Checkout"
             }
         }
     }
