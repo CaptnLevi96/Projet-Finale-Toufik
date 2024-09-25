@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion et Administration i18n - Pepinière Pinetown</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Pepinière Pinetown</div>
+    </header>
+    
+    <main>
+        <div id="login-section" class="container">
+            <h2>Connexion</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Adresse e-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Se connecter</button>
+                <p style="margin-top: 10px; text-align: center;"><strong>Adresse Email</strong>: admin@pepiniere.com / <strong>mot de passe</strong>: 12345</p>
+            </form>
+            <p id="login-message" class="message"></p>
+        </div>
+
+        <div id="admin-section" class="container" style="display: none;">
+            <h2>Contenu du fichier de l'array i18n</h2>
+            <textarea id="i18n-content" rows="20" readonly></textarea>
+            <button id="download-btn">Télécharger i18n.json</button>
+            <button id="logout-btn" style="margin-top: 10px; background-color: #f44336;">Déconnexion</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pepinière Pinetown. Tous droits réservés.</p>
+    </footer>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('Images/yusron-el-jihan-esd58uv6JpM-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(76, 175, 80, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #4CAF50;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #f44336;
+        }
+    </style>
+
+<script>
+    const i18nContent = {
+        "fr": {
+            "accueil" : {
+                "nav": "Accueil"
+            },
+            "produit" : {
+                "arbres": {
+                    "nav": "Arbres"
+                },
+                "fleurs": {
+                    "nav": "Fleurs"
+                },
+                "materiel": {
+                    "nav": "Matériel"
+                }
+            }
+        },
+        "en": {
+            "accueil" : {
+                "nav": "Home"
+            },
+            "produit" : {
+                "arbres": {
+                    "nav": "Trees"
+                },
+                "fleurs": {
+                    "nav": "Flowers"
+                },
+                "materiel": {
+                    "nav": "Materials"
+                }
+            }
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        const loginSection = document.getElementById('login-section');
+        const adminSection = document.getElementById('admin-section');
+        const messageElement = document.getElementById('login-message');
+        const textarea = document.getElementById('i18n-content');
+        const downloadBtn = document.getElementById('download-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email === 'admin@pepiniere.com' && password === '12345') {
+                loginSection.style.display = 'none';
+                adminSection.style.display = 'block';
+                textarea.value = JSON.stringify(i18nContent, null, 2);
+            } else {
+                messageElement.textContent = 'Identifiants incorrects. Veuillez réessayer.';
+                messageElement.className = 'message error';
+
+                // Effacer le message après 2 secondes
+                setTimeout(function() {
+                    messageElement.textContent = ''; // Effacer le message
+                    messageElement.className = ''; // Retirer la classe
+                }, 2000); // 
+            }
+        });
+
+        downloadBtn.addEventListener('click', function() {
+            const blob = new Blob([JSON.stringify(i18nContent, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'i18n.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            loginSection.style.display = 'block';
+            adminSection.style.display = 'none';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+            messageElement.textContent = '';
+        });
+    });
+</script>
+
+
+</body>
+</html>
