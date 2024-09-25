@@ -10,11 +10,13 @@
 
 class I18n {
   #lang;
+  #langList;
   #model;
   #i18n;
   constructor(lang, model) {
     this.#model = model;
     this.#i18n = null;
+    this.#langList = null;
     this.setLang(lang);
   }
 
@@ -25,6 +27,15 @@ class I18n {
 
   getLang() {
     return this.#lang;
+  }
+
+  getLangList() {
+    return this.#langList;
+  }
+
+  #setI18n(i18n) {
+    this.#i18n = i18n;
+    this.#langList = Object.keys(i18n);
   }
 
   async text(key) {
@@ -89,7 +100,7 @@ class I18n {
 
   async resetToDefault() {
     const i18nContent = await this.getContent().then((res) => res);
-    this.#i18n = i18nContent;
+    this.#setI18n(i18nContent);
     this.removeFromLocalStorage();
     this.saveToLocalStorage(i18nContent);
     return i18nContent;
@@ -99,7 +110,7 @@ class I18n {
     const i18nContent = await this.getFromLocalStorage();
     if (i18nContent) {
       try {
-        this.#i18n = JSON.parse(i18nContent);
+        this.#setI18n(JSON.parse(i18nContent));
       } catch (error) {
         window.localStorage.removeItem("i18nContent");
         console.warn("i18nContent was not a valid JSON file");
