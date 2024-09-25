@@ -1,0 +1,97 @@
+{
+    "sp": {
+    "app": {
+        "title": "Vivero Pinetown"
+    },
+    "input": {
+        "country": {
+            "label": "País:",
+            "default": "Seleccionar"
+        },
+        "currency": {
+            "label": "Moneda:",
+            "default": "Seleccionar"
+        },
+        "search": {
+            "label": "Ingrese una categoría..."
+        },
+        "buttons": {
+            "basket": "Cesta",
+            "search": "Buscar",
+            "previous": "Anterior",
+            "next": "Siguiente",
+            "contact": "Contacto",
+            "garantie": "Garantía"
+        },
+        "menu": {
+            "details": "Ver detalles",
+            "wikipedia": "Wikipedia",
+            "add_to_basket": "Agregar a la cesta"
+        }
+    },
+    "accueil" : {
+        "nav": "Inicio",
+        "welcome": "Bienvenido a <br><span id=\"pepiniere\">Vivero Pinetown</span>",
+        "description": "Descubre nuestra selección de plantas y árboles para embellecer tu jardín. <br> En la sección de abajo, descubrirás nuestros productos más populares. &darr;",
+        "products": {
+            "1": {
+                "title": "Macetas de vivero flexibles de plástico",
+                "description": "¡Para plantas de interior y exterior!"
+            },
+            "2": {
+                "title": "Alocasia cuprea 'Red Secret'",
+                "description": "Una planta de interior espectacular,<br>apreciada por su follaje metálico<br> y sus colores profundos."
+            },
+            "3": {
+                "title": "Bonsai 'Árbol del Dinero'",
+                "description": "Este árbol no puede dar dinero, <br> pero se dice que su belleza rara y modelo <br> trae buena suerte a su propietario!"
+            }
+        }
+    },
+    "produit" : {
+        "arbres": {
+            "nav": "Árboles",
+            "title": "Nuestra selección de árboles",
+            "description": "Descubre nuestra variedad de árboles para embellecer tu jardín."
+        },
+        "fleurs": {
+            "nav": "Flores",
+            "title": "Nuestra selección de flores",
+            "description": "Explora nuestra selección de flores para dar vida a tu espacio verde."
+        },
+        "materiel": {
+            "nav": "Material",
+            "title": "Nuestra selección de material",
+            "description": "Explora nuestra selección de material para mantener tu jardín."
+        }
+    },
+    "modals": {
+        "product": {
+            "title": "Producto",
+            "description": "Descripción",
+            "price": "Precio",
+            "quantity": "Cantidad",
+            "add_to_basket": "Agregar a la cesta",
+            "details": "Ver detalles",
+            "wikipedia": "Wikipedia"
+        },
+        "contact": {
+            "title": "Contáctanos",
+            "phone": "LLÁMANOS",
+            "address": "UBICACIÓN",
+            "hours": "HORAS DE TRABAJO"
+        },
+        "basket": {
+            "title": "Tu cesta",
+            "product": "Producto",
+            "quantity": "Cantidad",
+            "price": "Precio unitario",
+            "total": "Total",
+            "tps": "TPS",
+            "tvq": "TVQ",
+            "to_pay": "A pagar",
+            "checkout": "Checkout"
+        }
+    }
+    }
+}
