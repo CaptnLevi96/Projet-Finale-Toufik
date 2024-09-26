@@ -124,4 +124,3 @@ class I18n {
 }
 
 const _i18N = new I18n("en", "i18n/i18n.json");
-_i18N.hydrateHtml();
