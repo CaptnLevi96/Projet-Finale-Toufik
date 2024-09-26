@@ -1,3 +1,5 @@
+
+
 function currentFrame(frame) {
     // Masquer toutes les sections
     document.getElementById('Accueil').style.display = 'none';
@@ -40,4 +42,8 @@ function currentFrame(frame) {
     });
     
     gererBarreRecherche(frame);
+    };
+
+    function LienAdmin() {
+        window.location.href = "admin.html";
     }

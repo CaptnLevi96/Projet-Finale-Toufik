@@ -1,5 +1,25 @@
 /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */ /* Accueil */
  
+.btnadmin {
+background-color: #32883f;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 15px;
+}
+
+
+.btnadmin:hover {
+    background-color: #9df2a9;
+    color: #2f5735;
+}
+
 .menu-contextuel {
     display: none;
     position: absolute;
