@@ -90,7 +90,9 @@
                 "tps": "TPS",
                 "tvq": "TVQ",
                 "to_pay": "À payer",
-                "checkout": "Checkout"
+                "checkout": "Checkout",
+                "thanks": "Merci pour votre achat !",
+                "thanks-message": "Votre commande a été traitée avec succès."
             }
         }
     },
@@ -185,7 +187,9 @@
                 "tps": "TPS",
                 "tvq": "TVQ",
                 "to_pay": "To pay",
-                "checkout": "Checkout"
+                "checkout": "Checkout",
+                "thanks": "Thank you for your purchase!",
+                "thanks-message": "Your order has been processed successfully."
             }
         }
     }
