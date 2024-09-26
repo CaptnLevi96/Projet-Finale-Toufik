@@ -93,6 +93,15 @@
                 "checkout": "Checkout",
                 "thanks": "Merci pour votre achat !",
                 "thanks-message": "Votre commande a été traitée avec succès."
+            },
+            "garantie": {
+                "title": "Voici les garanties de la semaine",
+                "item1": "Garantie de croissance de 30 jours sur tous les arbres et arbustes",
+                "item2": "Garantie de floraison sur les plantes à fleurs pendant la première saison",
+                "item3": "Garantie de 1 an sur tous les outils de jardinage",
+                "item4": "Remplacement gratuit des plantes endommagées pendant le transport",
+                "item5": "Conseils d'experts gratuits pour l'entretien de vos plantes",
+                "close": "Fermer"
             }
         }
     },
@@ -190,6 +199,15 @@
                 "checkout": "Checkout",
                 "thanks": "Thank you for your purchase!",
                 "thanks-message": "Your order has been processed successfully."
+            },
+            "garantie": {
+                "title": "Here are the warranties of the week",
+                "item1": "30-day growth guarantee on all trees and shrubs",
+                "item2": "Flowering guarantee on flowering plants during the first season",
+                "item3": "1-year warranty on all gardening tools",
+                "item4": "Free replacement of plants damaged during transport",
+                "item5": "Free expert advice for plant care",
+                "close": "Close"
             }
         }
     }

@@ -404,13 +404,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contenu = document.createElement("div"); // Contenu du modal du bouton garanti, contenu + style //
     contenu.innerHTML = `
-            <h2 style="color: #2f5735; text-align: center;">Voici les garanties de la semaine</h2>
+            <h2 style="color: #2f5735; text-align: center;" data-i18n="modals.garantie.title"></h2>
             <ul style="list-style-type: none; padding: 0;">
-                <li style="margin-bottom: 10px; color: #589e62;">&#8226; Garantie de croissance de 30 jours sur tous les arbres et arbustes</li>
-                <li style="margin-bottom: 10px; color: #589e62;">&#8226; Garantie de floraison sur les plantes à fleurs pendant la première saison</li>
-                <li style="margin-bottom: 10px; color: #589e62;">&#8226; Garantie de 1 an sur tous les outils de jardinage</li>
-                <li style="margin-bottom: 10px; color: #589e62;">&#8226; Remplacement gratuit des plantes endommagées pendant le transport</li>
-                <li style="margin-bottom: 10px; color: #589e62;">&#8226; Conseils d'experts gratuits pour l'entretien de vos plantes</li>
+              <li style="margin-bottom: 10px; color: #589e62;">&#8226; <span data-i18n="modals.garantie.item1"></span></li>
+              <li style="margin-bottom: 10px; color: #589e62;">&#8226; <span data-i18n="modals.garantie.item2"></span></li>
+              <li style="margin-bottom: 10px; color: #589e62;">&#8226; <span data-i18n="modals.garantie.item3"></span></li>
+              <li style="margin-bottom: 10px; color: #589e62;">&#8226; <span data-i18n="modals.garantie.item4"></span></li>
+              <li style="margin-bottom: 10px; color: #589e62;">&#8226; <span data-i18n="modals.garantie.item5"></span></li>
             </ul>
             <button id="fermer-garantie" style="
                 background-color: #9df2a9;
@@ -427,6 +427,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             ">Fermer</button>
         `;
+
+
 
     popup.appendChild(contenu);
     document.body.appendChild(popup);
@@ -457,9 +459,12 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
       creerPopupGarantie();
+      _i18N.hydrateHtml();
     });
   });
 });
+
+
 
 // Gérer le menu contextuel    // Gérer le menu contextuel    // Gérer le menu contextuel    // Gérer le menu contextuel  // Gérer le menu contextuel // Gérer le menu contextuel  // Gérer le menu contextuel
 
