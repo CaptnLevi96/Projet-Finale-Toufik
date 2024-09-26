@@ -61,8 +61,8 @@ function afficherPanier() {
     tr.innerHTML = `
             <td>${item.nom}</td>
             <td>${item.quantite}</td>
-            <td>$${item.prix.toFixed(2)}</td>
-            <td>$${sousTotal.toFixed(2)}</td>
+            <td>${_context.sign} ${item.prix.toFixed(2)}</td>
+            <td>${_context.sign} ${sousTotal.toFixed(2)}</td>
         `;
     panierItems.appendChild(tr);
   });
@@ -73,10 +73,10 @@ function afficherPanier() {
   const aPayer = total + tps + tvq;
 
   // Mettre à jour les totaux
-  panierTotal.textContent = `$${total.toFixed(2)}`;
-  panierTPS.textContent = `$${tps.toFixed(2)}`;
-  panierTVQ.textContent = `$${tvq.toFixed(2)}`;
-  panierAPayer.textContent = `$${aPayer.toFixed(2)}`;
+  panierTotal.textContent = `${_context.sign} ${total.toFixed(2)}`;
+  panierTPS.textContent = `${_context.sign} ${tps.toFixed(2)}`;
+  panierTVQ.textContent = `${_context.sign} ${tvq.toFixed(2)}`;
+  panierAPayer.textContent = `${_context.sign} ${aPayer.toFixed(2)}`;
 
   // Afficher le panier
   panierPage.style.display = "flex";
