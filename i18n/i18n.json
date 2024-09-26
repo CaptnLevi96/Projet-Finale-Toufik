@@ -79,7 +79,10 @@
                 "title": "Contactez-nous",
                 "phone": "APPELEZ NOUS",
                 "address": "EMPLACEMENT",
-                "hours": "HEURES DE TRAVAIL"
+                "hours": "HEURES DE TRAVAIL",
+                "weekdays": "Lun - Ven",
+                "weekends": "Sam, Dim",
+                "closed": "Fermé"
             },
             "basket": {
                 "title": "Votre panier",
@@ -185,7 +188,10 @@
                 "title": "Contact us",
                 "phone": "CALL US",
                 "address": "ADDRESS",
-                "hours": "HOURS OF OPERATION"
+                "hours": "HOURS OF OPERATION",
+                "weekdays": "Mon - Fri",
+                "weekends": "Sat, Sun",
+                "closed": "Closed"
             },
             "basket": {
                 "title": "Your basket",
