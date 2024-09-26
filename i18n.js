@@ -41,11 +41,9 @@ class I18n {
   async text(key) {
     const lang = this.#lang;
     const keys = key.split(".");
-
     if (this.#i18n === null) {
       await this.evaluate();
     }
-
     let t = this.#i18n;
     if (t.hasOwnProperty(lang)) {
       t = t[lang];
@@ -56,6 +54,9 @@ class I18n {
       } else {
         t = t[keys[k]];
       }
+    }
+    if (key === "modals.produit.prix") {
+      console.log("test");
     }
     return t;
   }
@@ -71,10 +72,9 @@ class I18n {
         attributes = element.getAttribute("data-i18n-attribute");
         attributes = attributes.split(",");
       }
-
-      keys.forEach((key, index) => {
+      keys.forEach(async (key, index) => {
         const attribute = attributes[index] || "innerHTML";
-        this.text(key).then((text) => {
+        await this.text(key).then((text) => {
           element[attribute] = text;
         });
       });

@@ -175,7 +175,11 @@
             </div>
             <h2 id="modal-name"></h2>
             <p id="modal-description"></p>
-            <p id="modal-price"></p>
+            <p style="display: flex; align-items: center;">
+                <span data-i18n="modals.product.price"></span>:
+                <span id="modal-price"></span>
+                <span id="modal-price-symbol"></span>
+            </p>
             <div class="quantity-selector">
                 <label for="modal-quantity" data-i18n="modals.product.quantity"></label>
                 <input type="number" id="modal-quantity" min="1" max="300" value="1">

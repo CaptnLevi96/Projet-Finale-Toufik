@@ -14,6 +14,7 @@ function openModal(productId) {
     document.getElementById("modal-description").textContent =
       product.description;
     document.getElementById("modal-price").textContent = product.prix;
+    document.getElementById("modal-price-symbol").textContent = _context.sign;
     document.getElementById("modal-items-restants").textContent =
       product.itemsRestants;
 
@@ -428,8 +429,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ">Fermer</button>
         `;
 
-
-
     popup.appendChild(contenu);
     document.body.appendChild(popup);
 
@@ -463,8 +462,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-
 
 // Gérer le menu contextuel    // Gérer le menu contextuel    // Gérer le menu contextuel    // Gérer le menu contextuel  // Gérer le menu contextuel // Gérer le menu contextuel  // Gérer le menu contextuel
 
